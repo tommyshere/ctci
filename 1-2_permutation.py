@@ -1,8 +1,11 @@
 # Given two strings,
 # write a method to decide if one is a permutation of the other.
+from collections import Counter
+
 class Solution(object):
     def check_permutation():
-        s1 = "ab", s2 = "eidbaooo"
+        s1 = "ab"
+        s2 = "eidbaooo"
 
         # the sliding window
         # check a splice of the longer text
@@ -21,3 +24,6 @@ class Solution(object):
                 return True
 
         return False
+
+if __name__ == "__main__":
+    print(Solution.check_permutation())
