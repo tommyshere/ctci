@@ -47,6 +47,40 @@ class Solution(object):
                     return False
             return True
 
+    def ctci_solution(first, second):
+        # check length difference of 1
+        if abs(len(first) - len(second)) > 1:
+            return False
+
+        s1 = first if len(first) < len(second) else second
+        s2 = second if len(first) < len(second) else first
+
+        index1 = 0
+        index2 = 0
+
+        isDifferent = False;
+
+        while index2 < len(s2) && index1 < len(s1)j:
+            if s1[index1] != s2[index2]:
+                # checks if there is another difference after the first difference
+                # we won't hit this again after the first difference
+                if isDifferent:
+                    return False
+                # first difference
+                foundDifferent = True
+
+                # if they're the same length keep going
+                if len(s1) == len(s2):
+                    index1 += 1
+            # if it's the same value move forward
+            else:
+                index1 += 1
+            # always more forward for the longer one
+            index2 += 1
+
+        return True
+
+
 
 if __name__ == "__main__":
     print(Solution.one_away("pale", "ple"))  # True
